@@ -25,7 +25,8 @@ describe('schedulers', function () {
         it('then it should execute for each passing of the interval', function() {
             waitFor(1000);
             waitFor(1000);
-            expect(job.calls.length).toEqual(2);
+            waitFor(1000);
+            expect(job.calls.length).toEqual(3);
         });
     });
 });

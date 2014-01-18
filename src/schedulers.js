@@ -2,12 +2,14 @@ angular.module('schedulers', [])
     .factory('schedule', ['$timeout', ScheduleFactory]);
 
 function ScheduleFactory($timeout) {
-    return  {
+    var self;
+    self = {
         forPeriod: function (job, ms) {
             $timeout(function () {
                 job();
-                $timeout(job, ms);
+                self.forPeriod(job, ms);
             }, ms);
         }
     };
+    return   self;
 }
