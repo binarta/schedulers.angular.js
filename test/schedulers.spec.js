@@ -18,7 +18,7 @@ describe('schedulers', function () {
 
         it('then it should not execute before the interval has passed', function() {
             waitFor(999);
-            expect(job.calls.length).toEqual(0);
+            expect(job.calls.count()).toEqual(0);
         });
 
         it('then it should execute when the interval has passed', function() {
@@ -30,7 +30,7 @@ describe('schedulers', function () {
             waitFor(1000);
             waitFor(1000);
             waitFor(1000);
-            expect(job.calls.length).toEqual(3);
+            expect(job.calls.count()).toEqual(3);
         });
     });
 
@@ -40,12 +40,12 @@ describe('schedulers', function () {
         });
 
         it('job is executed', function () {
-            expect(job.calls.length).toEqual(1);
+            expect(job.calls.count()).toEqual(1);
         });
 
         it('job is executed again when the interval has passed', function() {
             waitFor(1000);
-            expect(job.calls.length).toEqual(2);
+            expect(job.calls.count()).toEqual(2);
         });
     });
 

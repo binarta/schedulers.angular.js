@@ -1,0 +1,5 @@
+{
+  "default": {
+    "schedulers": "bower_components/binarta.schedulers.angular/src/schedulers.js"
+  }
+}
